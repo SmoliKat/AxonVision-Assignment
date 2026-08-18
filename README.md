@@ -1,4 +1,4 @@
-# AxonVision Assignment — Motion Detection Pipeline
+# AxonVision Assignment- Motion Detection Pipeline
 
 A three-process motion-detection pipeline built for the Axon Vision home assignment.
 
