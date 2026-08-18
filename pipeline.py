@@ -70,6 +70,9 @@ def viewer(result_queue: mp.Queue, fps: float) -> None:
         frame_id, frame, detections = msg
 
         # Only the Viewer mutates pixels; Streamer/Detector never touch the image.
+        # Blur first (in-place on the ROI), then draw rectangles on top so they stay crisp.
+        for x, y, w, h in detections:
+            frame[y:y + h, x:x + w] = cv2.GaussianBlur(frame[y:y + h, x:x + w], (21, 21), 0)
         for x, y, w, h in detections:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
         cv2.putText(frame, datetime.now().strftime("%H:%M:%S"),
