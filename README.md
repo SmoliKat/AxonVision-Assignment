@@ -17,7 +17,7 @@ IPC is two bounded `multiprocessing.Queue`s (`maxsize=2`); end-of-stream is a `N
 - Python 3.8+
 - `opencv-python`
 - `numpy` (installed as a dependency of `opencv-python`)
-- A display (native window on Windows/macOS, or X server on Linux). The Viewer uses `cv2.imshow`; **headless environments will not work.**
+- A display (native window on Windows/macOS, or X server on Linux). The Viewer uses `cv2.imshow`. **headless environments will not work.**
 
 Install:
 
@@ -55,7 +55,7 @@ The assignment was implemented in three tagged stages so each milestone can be r
 
 | Tag | What was added |
 | --- | -------------- |
-| `stage-a` | Three-process pipeline; rectangles + timestamp in Viewer; smooth presentation-time playback; sentinel-based shutdown on natural EOF. |
+| `stage-a` | Three-process pipeline; rectangles + timestamp in Viewer; smooth presentation-time playback. sentinel-based shutdown on natural EOF. |
 | `stage-b` | Gaussian blur of detected ROIs added in Viewer (blur first, rectangle on top). No changes elsewhere. |
 | `stage-c` | Shutdown hardening: `try/finally` in Detector and Viewer, `KeyboardInterrupt` handling in `main`. |
 
